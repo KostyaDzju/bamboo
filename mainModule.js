@@ -2,11 +2,7 @@ angular.module("mainModule",["ngRoute"])
 
     .constant("baseUrl", "http://velvet.intelliconnect.stg.cch.com")
 
-    .config(function($routeProvider, $locationProvider) {
-        $locationProvider = {
-            html5Mode: true,
-            requireBase: false
-        };
+    .config(function($routeProvider) {
 
         $routeProvider.when("/login", {
             templateUrl: "/firstBamboo/loginView.html"
@@ -17,37 +13,88 @@ angular.module("mainModule",["ngRoute"])
         })
     })
 
-    .controller("authCtrl", function($scope, $http, $location, loginService) {
+    .controller("authCtrl", function($scope, $http, $location, $log, requestsService) {
+
+        $scope.rightToken = null;
 
         $scope.openLoginPage = function() {
             $location.path("/login");
         };
+
         $scope.authenticate = function(userName, password) {
-            loginService.authenticate();
+
+            $http(requestsService.authenticateRequest())
+                .success(function(token) {
+                    $scope.findRightToken(token);
+                    $scope.saveToken(token);
+                    $scope.getNews();
+                })
+                .error(function(error) {
+                    $log.log(error);
+                });
+        };
+
+        $scope.findRightToken = function(token) {
+
+            for (var prop in token) {
+                if(token.hasOwnProperty(prop)) {
+                    if(angular.isObject(token[prop])) {
+                        $scope.findRightToken(token[prop])
+                    } else {
+                        if(prop == "Code") {
+                            $scope.rightToken = token[prop];
+                        }
+                    }
+                }
+            }
+        };
+
+        $scope.saveToken = function() {
+            if($scope.rightToken != null) {
+                window.localStorage['token'] = $scope.rightToken;
+            }
+        };
+
+        $scope.getNews = function() {
+            $http(requestsService.newsRequest())
+                .success(function(data) {
+                    $scope.news = data;
+                    $log.log($scope.news);
+                    $location.path("/news");
+                })
+                .error(function(error) {
+                    $log.log(error)
+                });
         };
 
         $scope.openLoginPage();
     })
 
-    .service("loginService", function($http, $location, $log, baseUrl) {
-
-        window.localStorage['token'] = null;
+    .service("requestsService", function($http, $location, $log, baseUrl) {
 
         return {
-            authenticate: function() {
-                $http({
+
+            authenticateRequest: function() {
+
+                return {
                     method: "GET",
                     url: baseUrl + "/identity-v1.svc/AccessToken?type=%27Twill-RC4-Token%27&_dc=1441283889754",
                     headers: {
                         'X-ApiKey': "3CE89ED16A884BB48E0C587101589175",
                         'Authorization': "BasicZXhhZGVsMDFAd2suY29tOnBhc3N3b3Jk"
                     }
-                }).success(function(token) {
-                    window.localStorage['token'] = JSON.stringify(token);
-                    $location.path("/news");
-                }).error(function(error) {
-                    $log.log(error);
-                })
+                }
+            },
+            newsRequest: function() {
+
+                return {
+                    method: "GET",
+                    url: baseUrl + "/rsi-v1.svc/UserTrackers?$orderby=Title&$skip=0&$top=501&_dc=1441360971852",
+                    headers: {
+                        'X-ApiKey': "3CE89ED16A884BB48E0C587101589175",
+                        'Authorization': window.localStorage['token']
+                    }
+                }
             }
         }
     });
