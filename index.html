@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="mainModule">
+<html ng-app="app">
 <head>
     <meta charset="UTF-8">
     <title></title>
@@ -7,9 +7,14 @@
     <link href="bootstrap-theme.css" rel="stylesheet">
     <script src="angular.js"></script>
     <script src="angular-route.js"></script>
-    <script src="mainModule.js"></script>
+    <script src="app.js"></script>
+    <script src="login/loginDirective.js"></script>
+    <script src="news/newsDirective.js"></script>
+    <script src="requestsService.js"></script>
+    <script src="login/loginModule.js"></script>
+    <script src="news/newsModule.js"></script>
 </head>
-<body ng-controller="authCtrl">
-    <div ng-view></div>
+<body ng-controller="mainCtrl">
+    <ng-view></ng-view>
 </body>
 </html>
