@@ -1,17 +1,19 @@
-angular.module("app",["ngRoute", "loginDirective", "newsDirective"])
+angular.module("app",["ui.router", "loginDirective", "newsDirective"])
 
-    .config(function($routeProvider) {
+    .config(function($stateProvider, $urlRouterProvider) {
 
-        $routeProvider.when("/login", {
-            templateUrl: "/firstBamboo/login/loginViewDirective.html"
-        });
+        $urlRouterProvider.otherwise("/login");
 
-        $routeProvider.when("/news", {
-            templateUrl: "/firstBamboo/news/newsViewDirective.html"
-        });
-        $routeProvider.otherwise({
-            redirectTo: "/login"
-        });
+        $stateProvider
+            .state("login", {
+                url: "/login",
+                templateUrl: "/firstBamboo/login/loginViewDirective.html"
+            })
+            .state("news", {
+                url: "/news",
+                templateUrl: "/firstBamboo/news/newsViewDirective.html"
+            });
+
     })
     .controller("mainCtrl", function($scope, $http, $location, $log) {
 

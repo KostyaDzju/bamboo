@@ -1,17 +1,15 @@
 angular.module("loginModule",["requestsService"])
 
-    .controller("loginCtrl", function($scope, $http, $log, $location, requestsService) {
+    .controller("loginCtrl", function($scope, $log, $state, requestsService) {
 
         $scope.authenticate = function() {
 
-            $http(requestsService.authenticateRequest())
-                .success(function(token) {
-                    findRightToken(token);
-                    $location.path("/news");
-                })
-                .error(function(error) {
-                    $log.log(error);
-                });
+            requestsService.authenticateRequest(function(token) {
+                findRightToken(token);
+                $state.go("news");
+            }, function(error) {
+                $log.log(error);
+            });
         };
 
         function findRightToken(token) {
