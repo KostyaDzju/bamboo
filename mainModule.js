@@ -1,5 +1,7 @@
 angular.module("mainModule",["ngRoute"])
+
     .constant("baseUrl", "http://velvet.intelliconnect.stg.cch.com")
+
     .config(function($routeProvider, $locationProvider) {
         $locationProvider = {
             html5Mode: true,
@@ -14,6 +16,7 @@ angular.module("mainModule",["ngRoute"])
             templateUrl: "/firstBamboo/newsView.html"
         })
     })
+
     .controller("authCtrl", function($scope, $http, $location, loginService) {
 
         $scope.openLoginPage = function() {
@@ -21,12 +24,15 @@ angular.module("mainModule",["ngRoute"])
         };
         $scope.authenticate = function(userName, password) {
             loginService.authenticate();
-            $location.path("/news")
         };
 
         $scope.openLoginPage();
     })
-    .service("loginService", function($http, baseUrl) {
+
+    .service("loginService", function($http, $location, $log, baseUrl) {
+
+        window.localStorage['token'] = null;
+
         return {
             authenticate: function() {
                 $http({
@@ -37,7 +43,10 @@ angular.module("mainModule",["ngRoute"])
                         'Authorization': "BasicZXhhZGVsMDFAd2suY29tOnBhc3N3b3Jk"
                     }
                 }).success(function(token) {
-                    console.log(token);
+                    window.localStorage['token'] = JSON.stringify(token);
+                    $location.path("/news");
+                }).error(function(error) {
+                    $log.log(error);
                 })
             }
         }
