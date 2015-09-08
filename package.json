@@ -1,0 +1,33 @@
+{
+  "name": "bamboo",
+  "version": "1.0.0",
+  "description": "bamboo",
+  "main": "app.js",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-uglify": "^1.4.0",
+    "gulp-util": "^3.0.6",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-webserver": "^0.9.1",
+    "gulp-rename": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmikavoz/bamboo.git"
+  },
+  "keywords": [
+    "html5"
+  ],
+  "author": "vmikavoz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vmikavoz/bamboo/issues"
+  },
+  "homepage": "https://github.com/vmikavoz/bamboo#readme"
+}
