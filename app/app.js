@@ -1,4 +1,4 @@
-angular.module("app",["ui.router", "loginDirective", "newsDirective"])
+angular.module("app",["ui.router", "loginDirective", "newsDirective", "utilController"])
 
     .config(function($stateProvider, $urlRouterProvider) {
 
@@ -7,14 +7,13 @@ angular.module("app",["ui.router", "loginDirective", "newsDirective"])
         $stateProvider
             .state("login", {
                 url: "/login",
-                templateUrl: "/app/pages/loginViewDirective.html"
+                templateUrl: "/app/pages/loginView.html"
             })
             .state("news", {
                 url: "/news",
-                templateUrl: "/app/pages/newsViewDirective.html"
+                templateUrl: "/app/pages/newsViewDetails.html"
             });
 
     })
-    .controller("mainCtrl", function($scope, $http, $location, $log) {
-
+    .controller("mainCtrl", function($scope) {
     });

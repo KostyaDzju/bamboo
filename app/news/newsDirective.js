@@ -1,10 +1,52 @@
-angular.module("newsDirective", ["newsModule"])
-    .directive("newsDirective", function() {
+angular.module("newsDirective", ["requestsService"])
+    .directive("newsDetailView", function($log, requestsService) {
 
         return {
-            /*link: function(scope, element, attrs) {
 
-            },*/
+            scope: {
+                id: "="
+            },
+
+            restrict: "E",
+
+            require: "newsCtrl",
+
+            controller: function($scope) {
+                getFirstEntity = function() {
+                    requestsService.firstNewRequest($scope.$parent.title, function(data) {
+                        $scope.firstNew = processData(data);
+                    }, function (error) {
+                        $log.log(error);
+                    });
+                };
+
+                getSecondEntity = function() {
+                    requestsService.secondNewRequest($scope.id, function (data) {
+                        $scope.secondNew = processData(data);
+                    }, function(error) {
+                        $log.log(error);
+                    })
+                };
+
+                processData = function(data) {
+
+                    var firstArray = [];
+
+                    if(angular.isObject(data)) {
+                        var arr = data["d"]["results"];
+                        if(angular.isArray(arr)) {
+                            firstArray = arr.map(function(item) {
+                                return {id: item["Id"], title: item["Title"]};
+                            })
+                        }
+                    }
+                    return firstArray;
+                };
+
+                getFirstEntity();
+                getSecondEntity();
+            },
+
             templateUrl: "app/news/newsView.html"
         }
     });

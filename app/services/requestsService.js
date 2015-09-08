@@ -1,6 +1,6 @@
-angular.module("requestsService",["loginModule"])
+angular.module("requestsService",[])
     .constant("baseUrl", "http://velvet.intelliconnect.stg.cch.com")
-    .service("requestsService", function($http, baseUrl) {
+    .service("requestsService", function($http, $log, baseUrl) {
         return {
             authenticateRequest: function(successFn, errorFn) {
 
@@ -15,27 +15,29 @@ angular.module("requestsService",["loginModule"])
                     .success(successFn)
                     .error(errorFn);
             },
-            firstNewRequest: function(successFn, errorFn) {
+            firstNewRequest: function(parameter, successFn, errorFn) {
+
+                $log.log(parameter);
 
                 $http({
                     method: "GET",
                     url: baseUrl + "/rsi-v1.svc/UserTrackers?$orderby=Title&$skip=0&$top=501&_dc=1441360971852",
                     headers: {
                         'X-ApiKey': "3CE89ED16A884BB48E0C587101589175",
-                        'Authorization': window.localStorage['token']
+                        'Authorization': window.localStorage.getItem("token")
                     }
                 })
                     .success(successFn)
                     .error(errorFn);
             },
-            secondNewRequest: function(successFn, errorFn) {
+            secondNewRequest: function(parameter, successFn, errorFn) {
 
                 $http({
                     method: "GET",
-                    url: baseUrl + "/rsi-v1.svc/ContentTreeNodes('Csh!WKUS-TAL-DOCS-PHC-%257B6598E77F-77C0-46EE-9E94-9B8517637446%257D')/Children?workspaceId=-1&$orderby=Index&$skip=0&$top=501&_dc=1441364155096",
+                    url: baseUrl + "/rsi-v1.svc/ContentTreeNodes('" + parameter + "')/Children?workspaceId=-1&$orderby=Index&$skip=0&$top=501&_dc=1441364155096",
                     headers: {
                         'X-ApiKey': "3CE89ED16A884BB48E0C587101589175",
-                        'Authorization': window.localStorage['token']
+                        'Authorization': window.localStorage.getItem("token")
                     }
                 })
                     .success(successFn)
