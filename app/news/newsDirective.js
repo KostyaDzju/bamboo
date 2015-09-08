@@ -2,6 +2,9 @@ angular.module("newsDirective", ["newsModule"])
     .directive("newsDirective", function() {
 
         return {
-            templateUrl: "news/newsView.html"
+            /*link: function(scope, element, attrs) {
+
+            },*/
+            templateUrl: "app/news/newsView.html"
         }
     });

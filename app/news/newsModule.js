@@ -1,4 +1,4 @@
-angular.module("newsModule",["requestsService"])
+angular.module("newsModule",["requestsService", "newsDirective"])
 
     .controller("newsCtrl", function($scope, $log, requestsService) {
 

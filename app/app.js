@@ -7,11 +7,11 @@ angular.module("app",["ui.router", "loginDirective", "newsDirective"])
         $stateProvider
             .state("login", {
                 url: "/login",
-                templateUrl: "/firstBamboo/login/loginViewDirective.html"
+                templateUrl: "/app/pages/loginViewDirective.html"
             })
             .state("news", {
                 url: "/news",
-                templateUrl: "/firstBamboo/news/newsViewDirective.html"
+                templateUrl: "/app/pages/newsViewDirective.html"
             });
 
     })
