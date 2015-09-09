@@ -1,4 +1,4 @@
-angular.module("app",["ui.router", "loginDirective", "newsDirective", "utilController"])
+angular.module("app",["ui.router", "loginDirective", "newsDirective"])
 
     .config(function($stateProvider, $urlRouterProvider) {
 

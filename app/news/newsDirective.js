@@ -9,11 +9,9 @@ angular.module("newsDirective", ["requestsService"])
 
             restrict: "E",
 
-            require: "newsCtrl",
-
             controller: function($scope) {
                 getFirstEntity = function() {
-                    requestsService.firstNewRequest($scope.$parent.title, function(data) {
+                    requestsService.firstNewRequest(function(data) {
                         $scope.firstNew = processData(data);
                     }, function (error) {
                         $log.log(error);

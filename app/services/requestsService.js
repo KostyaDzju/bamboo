@@ -15,9 +15,7 @@ angular.module("requestsService",[])
                     .success(successFn)
                     .error(errorFn);
             },
-            firstNewRequest: function(parameter, successFn, errorFn) {
-
-                $log.log(parameter);
+            firstNewRequest: function(successFn, errorFn) {
 
                 $http({
                     method: "GET",
