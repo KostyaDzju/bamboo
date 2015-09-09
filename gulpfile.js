@@ -21,7 +21,7 @@ gulp.task('scripts',['clean-scripts'], function() {
  });
 
 gulp.task('css', function () {
- gulp.src('**/bootstrap.css')
+ gulp.src('bower_components/bootstrap/dist/css/bootstrap.css')
  .pipe(cssmin())
  .pipe(rename({suffix: '.min'}))
  .pipe(gulp.dest('app/dist/css/'));
