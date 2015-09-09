@@ -1,0 +1,65 @@
+.wrapper {
+    position: relative;
+}
+.toolbar {
+    position: relative;
+    background-color: rgb(0, 102, 153);
+    height: 47px;
+}
+.menu {
+    position:absolute;
+    top: 5px;
+    left: 15px;
+    background-image: url("/app/images/menu.png");
+    background-position: 0 0;
+    background-size: 35px;
+    width: 35px;
+    height: 35px;
+}
+.menuContent {
+    position: absolute;
+    background-color: rgb(31, 73, 92);
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 47px;
+    width: 300px;
+    height: 300px;
+    z-index: 1;
+}
+.list {
+    padding-top: 10px;
+    padding-left: 0;
+    font-family: 'Helvetica Neue', HelveticaNeue, Helvetica-Neue, Helvetica, 'BBAlpha Sans', sans-serif;
+    font-size: 17px;
+    color: rgb(149, 160, 178);
+}
+.list li {
+    list-style-type: none;
+    padding-left: 15px;
+    font-family: "Helvetica Neue",HelveticaNeue,Helvetica-Neue,Helvetica,"BBAlpha Sans",sans-serif!important;
+    color: rgb(255, 255, 255);
+}
+.searchInput {
+    padding-left: 60px;
+    padding-top: 9px;
+}
+.xButton {
+    position: relative;
+    left: 180px;
+    top: -26px;
+    background-image: url("/app/images/xButton.png");
+    background-repeat: no-repeat;
+    background-size: 25px;
+    width: 30px;
+    height: 30px;
+}
+.logo {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-image: url("/app/images/logo.png");
+    background-repeat: no-repeat;
+    width: 175px;
+    height: 40px;
+}
