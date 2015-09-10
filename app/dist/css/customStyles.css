@@ -6,7 +6,7 @@
     background-color: rgb(0, 102, 153);
     height: 47px;
 }
-.menu {
+.menuIcon {
     position:absolute;
     top: 5px;
     left: 15px;
@@ -16,7 +16,7 @@
     width: 35px;
     height: 35px;
 }
-.menu:hover {
+.menuIcon:hover {
     background-position: 0 -35px;
 }
 .menuContent {
@@ -26,24 +26,77 @@
     left: 0;
     top: 47px;
     width: 300px;
-    height: 300px;
+    border-top: 1px solid #000;
+    color: rgb(255, 255, 255);
     z-index: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px);
 }
-.list {
-    background-color: rgb(42, 82, 100);
-    padding-top: 10px;
-    padding-left: 0;
+.menuList {
+    line-height: 47px;
+    background-color: rgb(31, 73, 92);
     font-family: 'Helvetica Neue', HelveticaNeue, Helvetica-Neue, Helvetica, 'BBAlpha Sans', sans-serif;
     font-size: 17px;
-    color: rgb(149, 160, 178);
 }
-.list li {
-    background-color: rgb(31, 73, 92);
-    list-style-type: none;
-    padding-left: 15px;
-    font-family: "Helvetica Neue",HelveticaNeue,Helvetica-Neue,Helvetica,"BBAlpha Sans",sans-serif!important;
-    color: rgb(255, 255, 255);
+.menuList div {
+    border-top: #33596b 1px solid;
+}
+.point {
+    padding-left: 55px;
+}
+.menuHeader {
+    color: rgb(149, 160, 178);
+    padding-left: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(42, 82, 100);
+    font-family: 'Helvetica Neue', HelveticaNeue, Helvetica-Neue, Helvetica, 'BBAlpha Sans', sans-serif;
+    text-shadow: rgb(68, 68, 68) 1px 1px 0;
+    line-height: 38px;
+}
+.menuPointWrapper {
+    position: relative;
+}
+.commonSignStyle {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+.invertImageColor {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+.starSign {
+    background-image: url("/app/images/star.png");
+}
+.newsSign {
+    background-image: url("/app/images/news.png");
+}
+.toolsSign {
+    background-image: url("/app/images/tools.png");
+}
+.citationSign {
+    background-image: url("/app/images/citation.png");
+}
+.researchSign {
+    background-image: url("/app/images/research.png");
+}
+.documentSign {
+    background-image: url("/app/images/document.png");
+}
+.historySign {
+    background-image: url("/app/images/history.png");
+}
+.feedbackSign {
+    background-image: url("/app/images/feedback.png");
+}
+.settingsSign {
+    background-image: url("/app/images/settings.png");
+}
+.termsSign {
+    background-image: url("/app/images/terms.png");
 }
 .searchInput {
     padding-left: 60px;

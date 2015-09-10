@@ -1,20 +1,53 @@
 <div class=""wrapper>
-    <div class="menu" ng-click="toggleMenu($event)"></div>
-    <div class="menuContent" ng-show="menuOpened">
-        <ul class="list">
-            Home Pages
-            <li>Add a new page</li>
-            <li>Home</li>
-            CCH Mobile Functions
-            <li>News & Alerts</li>
-            <li>Smart Charts & Tools</li>
-            <li>Citation Look-ups</li>
-            <li>Research Folders</li>
-            <li>Document Notes</li>
-            <li>History</li>
-            <li>Feedback & Help</li>
-            <li>Settings</li>
-            <li>Terms & Conditions</li>
-        </ul>
-    </div>
+	<div class="menuIcon" ng-click="toggleMenu($event)"></div>
+	<div class="menuContent" ng-show="menuOpened">
+        <div class="menuList">
+			<div class="menuHeader">Home Pages</div>
+			<div class="menuPointWrapper">
+				<span class="commonSignStyle starSign invertImageColor"></span>
+				<div class="point">Add a new page</div>
+			</div>
+			<div class="menuPointWrapper">
+				<span class="commonSignStyle starSign invertImageColor"></span>
+				<div class="point">Home</div>
+			</div>
+			<div class="menuHeader">CCH Mobile Functions</div>
+			<div class="menuPointWrapper">
+				<span class="commonSignStyle newsSign"></span>
+				<div class="point">News & Alerts</div>
+			</div>
+			<div class="menuPointWrapper">
+				<span class="commonSignStyle toolsSign"></span>
+				<div class="point">Smart Charts & Tools</div>
+			</div>
+			<div class="menuPointWrapper" ng-click="openCitations()">
+				<span class="commonSignStyle citationSign invertImageColor"></span>
+				<div class="point">Citation Look-ups</div>
+			</div>
+			<div class="menuPointWrapper">
+				<span class="commonSignStyle researchSign"></span>
+				<div class="point">Research Folders</div>
+			</div>
+			<div class="menuPointWrapper">
+				<span class="commonSignStyle documentSign"></span>
+				<div class="point">Document Notes</div>
+			</div>
+			<div class="menuPointWrapper">
+				<span class="commonSignStyle historySign"></span>
+				<div class="point">History</div>
+			</div>
+			<div class="menuPointWrapper">
+				<span class="commonSignStyle feedbackSign invertImageColor"></span>
+				<div class="point">Feedback & Help</div>
+			</div>
+			<div class="menuPointWrapper">
+				<span class="commonSignStyle settingsSign invertImageColor"></span>
+				<div class="point">Settings</div>
+			</div>
+			<div class="menuPointWrapper">
+				<span class="commonSignStyle termsSign"></span>
+				<div class="point">Terms & Conditions</div>
+			</div>
+        </div>
+	</div>
 </div>

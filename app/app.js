@@ -12,8 +12,11 @@ angular.module("app",["ui.router", "loginDirective", "newsDirective", "toolbarDi
             .state("news", {
                 url: "/news",
                 templateUrl: "/app/pages/newsViewDetails.html"
-            });
-
+            })
+            .state("citations", {
+                url: "/news",
+                templateUrl: "/app/pages/citations.html"
+            })
     })
     .controller("mainCtrl", function($scope) {
     });

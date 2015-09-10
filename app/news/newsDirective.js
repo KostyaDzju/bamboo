@@ -10,6 +10,7 @@ angular.module("newsDirective", ["requestsService"])
             restrict: "E",
 
             controller: function($scope) {
+
                 getFirstEntity = function() {
                     requestsService.firstNewRequest(function(data) {
                         $scope.firstNew = processData(data);

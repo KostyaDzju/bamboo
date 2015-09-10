@@ -1,5 +1,5 @@
 angular.module("menuDirective", [])
-    .directive("menuView", function() {
+    .directive("menuView", function($state) {
 
         return {
 
@@ -15,6 +15,10 @@ angular.module("menuDirective", [])
                     $scope.menuOpened = !($scope.menuOpened);
 
                     event.stopPropagation();
+                };
+
+                $scope.openCitations = function() {
+                    $state.go("citations");
                 };
 
                 window.onclick = function () {
