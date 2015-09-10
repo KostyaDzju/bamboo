@@ -9,11 +9,20 @@ angular.module("menuDirective", [])
 
             controller: function($scope) {
 
-                $scope.toggle = true;
+                $scope.menuOpened = false;
 
-                $scope.toggleMenu = function() {
-                    $scope.toggle = $scope.toggle === false;
-                }
+                $scope.toggleMenu = function(event) {
+                    $scope.menuOpened = !($scope.menuOpened);
+
+                    event.stopPropagation();
+                };
+
+                window.onclick = function () {
+                    if($scope.menuOpened) {
+                        $scope.menuOpened = false;
+                        $scope.$apply();
+                    }
+                };
             },
 
             templateUrl: "app/toolbar/menuView.html"

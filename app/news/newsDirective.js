@@ -30,14 +30,18 @@ angular.module("newsDirective", ["requestsService"])
 
                     var firstArray = [];
 
-                    if(angular.isObject(data)) {
-                        var arr = data["d"]["results"];
+                    if(angular.isObject(data) && data.hasOwnProperty("d")) {
+                        if(angular.isObject(data["d"]) && data["d"].hasOwnProperty("results")) {
+                            var arr = data["d"]["results"];
+                            }
+                        }
                         if(angular.isArray(arr)) {
                             firstArray = arr.map(function(item) {
-                                return {id: item["Id"], title: item["Title"]};
+                                if(angular.isObject(item) && item.hasOwnProperty("Id") && item.hasOwnProperty("Title")) {
+                                    return {id: item["Id"], title: item["Title"]};
+                                }
                             })
                         }
-                    }
                     return firstArray;
                 };
 

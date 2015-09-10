@@ -1,6 +1,6 @@
 <div class=""wrapper>
-    <div class="menu" ng-click="toggleMenu()"></div>
-    <div class="menuContent" ng-hide="toggle">
+    <div class="menu" ng-click="toggleMenu($event)"></div>
+    <div class="menuContent" ng-show="menuOpened">
         <ul class="list">
             Home Pages
             <li>Add a new page</li>
