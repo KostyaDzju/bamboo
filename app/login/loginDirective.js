@@ -1,5 +1,5 @@
 angular.module("loginDirective", ["requestsService"])
-    .directive("loginViewDetails", function($state, requestsService) {
+    .directive("loginViewDetails", function($state, $log, requestsService) {
 
         return {
 

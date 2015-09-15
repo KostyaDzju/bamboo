@@ -1,3 +1,6 @@
+html, body {
+    height: 100%;
+}
 .wrapper {
     position: relative;
 }
@@ -29,6 +32,7 @@
     border-top: 1px solid #000;
     color: rgb(255, 255, 255);
     z-index: 1;
+    height: 100%;
 }
 .menuList {
     line-height: 47px;
@@ -101,12 +105,13 @@
 .searchInput {
     padding-left: 60px;
     padding-top: 9px;
-}
+    }
 .searchInput input {
     width: 210px;
     padding-left: 10px;
     height: 2em;
     border-radius: 1em;
+    border: 0;
     outline: 0;
 }
 .xButton {
@@ -127,4 +132,5 @@
     background-repeat: no-repeat;
     width: 175px;
     height: 40px;
+    cursor: pointer;
 }

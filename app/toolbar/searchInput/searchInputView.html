@@ -1,0 +1,5 @@
+<form class="searchInput" ng-submit="performSearch(searchValue)">
+    <input id="search" type="search" placeholder="Search all content" ng-keypress="handleKeyPress($event)" ng-model="searchValue">
+    <div id="xButton" class="xButton" ng-show="searchValue" ng-click="clearSearchInput()"></div>
+</form>
+

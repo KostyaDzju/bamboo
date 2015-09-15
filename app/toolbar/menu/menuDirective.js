@@ -29,7 +29,7 @@ angular.module("menuDirective", [])
                 };
             },
 
-            templateUrl: "app/toolbar/menuView.html"
+            templateUrl: "app/toolbar/menu/menuView.html"
         }
 
     });

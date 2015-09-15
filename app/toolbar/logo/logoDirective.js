@@ -6,7 +6,7 @@ angular.module("logoDirective", [])
             restrict: "EA",
             replace: true,
 
-            templateUrl: "app/toolbar/logoView.html",
+            templateUrl: "app/toolbar/logo/logoView.html",
 
             controller: function($scope) {
 
