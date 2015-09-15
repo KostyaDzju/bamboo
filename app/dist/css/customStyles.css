@@ -3,6 +3,8 @@ html, body {
 }
 .wrapper {
     position: relative;
+    height: 100%;
+    width: 100%;
 }
 .toolbar {
     position: relative;
@@ -133,4 +135,67 @@ html, body {
     width: 175px;
     height: 40px;
     cursor: pointer;
+}
+.stripeWithBtn {
+    position: relative;
+    background-color: rgb(238, 238, 238);
+    height: 50px;
+    width: 100%;
+}
+.wrapperBtn {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.btns {
+    background-color: rgb(255, 255, 255);
+    color: rgb(38, 38, 38);
+    border: 1px solid #b3b3b3;
+    border-radius: 0.4em 0.4em 0.4em 0.4em;
+    float: left;
+    cursor: pointer;
+    height: 2.2em;
+    padding: 5px 8px;
+    font-family: 'Helvetica Neue', HelveticaNeue, Helvetica-Neue, Helvetica, 'BBAlpha Sans', sans-serif;
+}
+.homeBtnValue {
+    width: 5em;
+}
+.resultsBtn {
+    position: relative;
+    margin-left: 30px;
+    border-radius: 0 0.4em 0.4em 0;
+}
+.resultsBtn:after, .resultsBtn:before {
+    right:100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+.resultsBtn:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-right-color: #ffffff;
+    border-width: 14px;
+    margin-top: -14px;
+}
+.resultsBtn:before {
+    border-color: rgba(179, 179, 179, 0);
+    border-right-color: #b3b3b3;
+    border-width: 16px;
+    margin-top: -16px;
+}
+.resultsBtnValue {
+    opacity: .5;
+}
+.loader {
+    position: relative;
+    top: 43%;
+    left: 48%;
+    /*height: 80px;
+    width: 70px;
+    background-color: rgba(0, 0, 0, 0.298039);
+    color: hsl(0, 0%, 20%);*/
 }

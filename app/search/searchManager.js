@@ -10,7 +10,8 @@ angular.module("searchManager", [])
             controller: function($scope) {
 
                 $scope.$on('searchEnded', function(event, searchModel) {
-                    searchModel.getSearchId();
+                    $scope.totalResults = searchModel.getSearchTotalResults();
+                    $scope.searchQuery = searchModel.getSearchQuery();
                 });
             },
 
