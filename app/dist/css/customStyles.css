@@ -190,12 +190,23 @@ html, body {
 .resultsBtnValue {
     opacity: .5;
 }
+.searchResultContent {
+    background-color: rgba(0, 0, 0, 0.51);
+    height: 100%;
+}
 .loader {
-    position: relative;
-    top: 43%;
-    left: 48%;
-    /*height: 80px;
-    width: 70px;
-    background-color: rgba(0, 0, 0, 0.298039);
-    color: hsl(0, 0%, 20%);*/
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    background-image: url("/app/images/loading_spinner.gif");
+    border-radius: 0.4em;
+    height: 200px;
+    width: 200px;
+    padding-top: 170px;
+    padding-left: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    -webkit-filter: invert(65%);
+    filter: invert(65%);
 }
