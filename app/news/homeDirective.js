@@ -1,5 +1,5 @@
-angular.module("newsDirective", ["requestsService"])
-    .directive("newsDetailView", function($log, requestsService) {
+angular.module("homeDirective", ["requestsService"])
+    .directive("homeDetailView", function($log, requestsService) {
 
         return {
 
@@ -50,6 +50,6 @@ angular.module("newsDirective", ["requestsService"])
                 getSecondEntity();
             },
 
-            templateUrl: "app/news/newsView.html"
+            templateUrl: "app/news/homeView.html"
         }
     });

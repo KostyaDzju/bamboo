@@ -1,4 +1,4 @@
-angular.module("app",["ui.router", "loginDirective", "newsDirective", "toolbarDirective", "searchManager"])
+angular.module("app",["ui.router", "loginDirective", "homeDirective", "toolbarDirective", "searchManager"])
 
     .config(function($stateProvider, $urlRouterProvider, searchServiceProvider) {
 
@@ -9,9 +9,9 @@ angular.module("app",["ui.router", "loginDirective", "newsDirective", "toolbarDi
                 url: "/login",
                 templateUrl: "/app/pages/loginView.html"
             })
-            .state("news", {
-                url: "/news",
-                templateUrl: "/app/pages/newsViewDetails.html"
+            .state("home", {
+                url: "/home",
+                templateUrl: "/app/pages/homeViewDetails.html"
             })
             .state("searchResult", {
                 url: "/searchResult",

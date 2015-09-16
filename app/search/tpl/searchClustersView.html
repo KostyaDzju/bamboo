@@ -1,0 +1,29 @@
+<div class="wrapper">
+    <div class="stripeWithBtn">
+        <div class="wrapperBtn">
+            <div class="btns"><span class="homeBtnValue">Home</span></div>
+            <span class="arrow"></span>
+            <div class="btns resultsBtn"><span class="resultsBtnValue">Search Results</span></div>
+        </div>
+    </div>
+    <div class="sortingStripe">
+        <div class="floatLeft italicText" ng-if="!searchComplete">Searching for&nbsp;</div>
+        <div class="floatLeft" ng-if="searchComplete">{{totalResults}}<span class="italicText">&nbsp;results for&nbsp;</span></div>
+        <span class="quote">{{searchQuery}}</span>
+        <div class="sortingBox"></div>
+    </div>
+    <div id="searchResultContentId" class="searchResultContent loadingBGColor">
+        <div ng-repeat="cluster in clusters">
+            <div class="clusterHeader">
+                <div class="clusterTitle">{{cluster.title}}
+                    <a class="clusterTotalResultsLink" href="">View All ({{cluster.totalResults}})</a>
+                </div>
+            </div>
+            <div class="clusterDetailsWrapper" ng-repeat="item in cluster.items">
+                <div class="clusterDetailsTitle">{{item.Title}}</div>
+                <div class="clusterDetailsSummary">{{item.Summary}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="loader" ng-hide="searchComplete">Loading...</div>
+</div>

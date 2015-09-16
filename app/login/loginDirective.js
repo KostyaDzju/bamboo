@@ -11,7 +11,7 @@ angular.module("loginDirective", ["requestsService"])
 
                     requestsService.authenticateRequest(function(token) {
                         saveToken(token);
-                        $state.go("news");
+                        $state.go("home");
                     }, function(error) {
                         $log.log(error);
                     });

@@ -15,7 +15,7 @@ angular.module("searchInputDirective", ["searchService"])
 
                 $scope.performSearch = function(searchValue) {
 
-                    $rootScope.$broadcast('searchStarted');
+                    $rootScope.$broadcast('searchStarted', searchValue);
 
                     searchService.searchRequest(searchValue);
                 };

@@ -11,7 +11,7 @@ angular.module("logoDirective", [])
             controller: function($scope) {
 
                 $scope.openMainWindow = function() {
-                    $state.go("news");
+                    $state.go("home");
                 }
             }
 

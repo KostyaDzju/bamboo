@@ -10,7 +10,7 @@ angular.module("searchModelService",[])
                 return searchModel.query;
             },
 
-            getSearchClusters: function() {
+            getClustersResult: function() {
                 return searchModel.clusters
             },
 
@@ -36,7 +36,9 @@ angular.module("searchModelService",[])
                 var cluster = {};
 
                 cluster["searchId"] = results[i]["Id"];
+                cluster["title"] = results[i]["Title"];
                 cluster["items"] = results[i]["Items"]["results"];
+                cluster["totalResults"] = results[i]["TotalResults"];
 
                 searchModel.clusters.push(cluster);
             }
@@ -78,21 +80,6 @@ angular.module("searchModelService",[])
                 }
 
                 $rootScope.$broadcast('searchEnded', searchModel);
-            },
-
-            processSearchResult: function(searchResult) {
-                var myData = JSON.parse(searchResult, function(key, value) {
-                    var type;
-                    if (value && typeof value === 'object') {
-                        type = value.type;
-                        if (typeof type === 'string' && typeof window[type] === 'function') {
-                            return new (window[type])(value);
-                        }
-                    }
-                    return value;
-                });
-
-                console.log(myData);
             }
         }
     });

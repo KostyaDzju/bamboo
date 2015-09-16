@@ -8,7 +8,8 @@ angular.module("toolbarDirective", ["menuDirective", "searchInputDirective", "lo
             templateUrl: "app/toolbar/toolbarView.html",
 
             controller: function($scope) {
-                $scope.$on('searchStarted', function() {
+                $scope.$on('searchStarted', function(event, searchValue) {
+                    window.localStorage.setItem("searchQuery", searchValue);
                     $state.go("searchResult");
                 })
             }

@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+    font-family: 'Helvetica Neue', HelveticaNeue, Helvetica-Neue, Helvetica, 'BBAlpha Sans', sans-serif;
 }
 .wrapper {
     position: relative;
@@ -191,8 +192,78 @@ html, body {
     opacity: .5;
 }
 .searchResultContent {
-    background-color: rgba(0, 0, 0, 0.51);
     height: 100%;
+}
+.loadingBGColor {
+    background-color: rgba(0, 0, 0, 0.51);
+}
+.sortingStripe {
+    position: relative;
+    font-size: 16px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    min-height: 3.3em;
+}
+.totalResultsValue {
+    float: left;
+}
+.italicText {
+    font-style: italic;
+}
+.floatLeft {
+    float: left;
+}
+.quote:before {
+    content: open-quote;
+}
+.quote:after {
+    content: close-quote;
+}
+.sortingBox {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    background-image: -webkit-linear-gradient(top, rgb(254, 254, 254), rgb(206, 206, 206));
+    border: 0;
+    border-radius: 0.8em;
+    width: 13em;
+    min-height: 2.1em;
+    cursor: pointer;
+}
+.clusterHeader {
+    width: 100%;
+    background-color: rgb(145, 167, 187);
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 0 #444;
+    font-weight: bold;
+    height: 2.5em;
+    border-bottom: 1px solid #58748e;
+}
+.clusterTitle {
+    font-size: 15px;
+    padding: 0.6em 0.4em
+}
+.clusterTotalResultsLink {
+    float: right;
+    color: rgb(255, 255, 255);
+    font-size: 0.9em;
+    padding-right: 5px;
+}
+.clusterTotalResultsLink:hover {
+    color: rgb(255, 255, 255);
+}
+.clusterTotalResultsLink:visited {
+    color: rgb(255, 255, 255);
+}
+.clusterDetailsWrapper {
+    min-height: 47px;
+    font-size: 15px;
+    border-top: 1px solid #e6e6e6;
+    padding: 0.81em 0.4em;
+}
+.clusterDetailsTitle {
+    font-weight: bold;
+    color: rgb(0, 0, 204);;
 }
 .loader {
     position: absolute;
