@@ -1,5 +1,5 @@
-angular.module("searchInputDirective", ["searchService"])
-    .directive("searchInputView", function(searchService) {
+angular.module("searchInputDirective", ["searchService", "searchModelService"])
+    .directive("searchInputView", function() {
 
         return {
 
@@ -7,7 +7,7 @@ angular.module("searchInputDirective", ["searchService"])
 
             replace: true,
 
-            controller: function($scope, $rootScope) {
+            controller: function($scope, $rootScope, searchService, searchModelService) {
 
                 $scope.clearSearchInput = function() {
                     $scope.searchValue = null;
@@ -17,6 +17,7 @@ angular.module("searchInputDirective", ["searchService"])
 
                     $rootScope.$broadcast('searchStarted', searchValue);
 
+                    searchModelService.setSearchQuery(searchValue);
                     searchService.searchRequest(searchValue);
                 };
             },

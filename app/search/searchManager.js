@@ -1,4 +1,4 @@
-angular.module("searchManager", [])
+angular.module("searchManager", ["searchModelService"])
     .directive("searchManager", function() {
 
         return {
@@ -7,16 +7,10 @@ angular.module("searchManager", [])
 
             replace: true,
 
-            require: "toolbarView",
+            controller: function($scope, $state, searchModelService) {
 
-            link: function($scope, ctrl) {
-                console.log(ctrl.newValue);
-            },
+                $scope.searchQuery = searchModelService.getSearchQuery();
 
-            controller: function($scope, $state) {
-
-                $scope.searchQuery = window.localStorage.getItem("searchQuery");
-                //console.log($scope.newValue);
                 $scope.searchComplete = false;
 
                 $scope.$on('searchEnded', function(event, searchModel) {

@@ -60,8 +60,6 @@ angular.module("searchModelService",[])
 
                 searchModel.searchId = searchResult["d"]["Id"];
 
-                searchModel.query = searchResult["d"]["Query"];
-
                 if(searchResult["d"]["Clustered"] === true) {
 
                     var clusteredResultObj = searchResult["d"]["ClusterResult"];
@@ -80,6 +78,14 @@ angular.module("searchModelService",[])
                 }
 
                 $rootScope.$broadcast('searchEnded', searchModel);
+            },
+
+            setSearchQuery: function(query) {
+                searchModel.query = query;
+            },
+
+            getSearchQuery: function () {
+                return searchModel.getSearchQuery();
             }
         }
     });
