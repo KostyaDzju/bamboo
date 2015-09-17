@@ -1,54 +1,54 @@
-<div class=""wrapper>
+<div>
 	<div class="menuIcon" ng-click="toggleMenu($event)"></div>
 	<div class="menuContent" ng-show="menuOpened">
-        <div class="menuList">
-			<div class="menuHeader">Home Pages</div>
-			<div class="menuPointWrapper">
-				<span class="commonSignStyle starSign invertImageColor"></span>
-				<div class="point">Add a new page</div>
-			</div>
-			<div class="menuPointWrapper">
-				<span class="commonSignStyle starSign invertImageColor"></span>
-				<div class="point">Home</div>
-			</div>
-			<div class="menuHeader">CCH Mobile Functions</div>
-			<div class="menuPointWrapper">
-				<span class="commonSignStyle newsSign"></span>
-				<div class="point">News & Alerts</div>
-			</div>
-			<div class="menuPointWrapper">
-				<span class="commonSignStyle toolsSign"></span>
-				<div class="point">Smart Charts & Tools</div>
-			</div>
-			<div class="menuPointWrapper" ng-click="openCitations()">
-				<span class="commonSignStyle citationSign invertImageColor"></span>
-				<div class="point">Citation Look-ups</div>
-			</div>
-			<div class="menuPointWrapper">
-				<span class="commonSignStyle researchSign"></span>
-				<div class="point">Research Folders</div>
-			</div>
-			<div class="menuPointWrapper">
-				<span class="commonSignStyle documentSign"></span>
-				<div class="point">Document Notes</div>
-			</div>
-			<div class="menuPointWrapper">
-				<span class="commonSignStyle historySign"></span>
-				<div class="point">History</div>
-			</div>
-			<div class="menuPointWrapper">
-				<span class="commonSignStyle feedbackSign invertImageColor"></span>
-				<div class="point">Feedback & Help</div>
-			</div>
-			<div class="menuPointWrapper">
-				<span class="commonSignStyle settingsSign invertImageColor"></span>
-				<div class="point">Settings</div>
-			</div>
-			<div class="menuPointWrapper">
-				<span class="commonSignStyle termsSign"></span>
-				<div class="point">Terms & Conditions</div>
-			</div>
-        </div>
-		<div class=""></div>
+			<ul class="menuList">
+				<li class="menuHeader">Home Pages</li>
+				<li>
+					<span class="commonSignStyle starSign invertImageColor"></span>
+					Add a new page
+				</li>
+				<li>
+					<span class="commonSignStyle starSign invertImageColor"></span>
+					Home
+				</li>
+				<li class="menuHeader">CCH Mobile Functions</li>
+				<li>
+					<span class="commonSignStyle newsSign"></span>
+					News & Alerts
+				</li>
+				<li>
+					<span class="commonSignStyle toolsSign"></span>
+					Smart Charts & Tools
+				</li>
+				<li ng-click="openCitations()">
+					<span class="commonSignStyle citationSign invertImageColor"></span>
+					Citation Look-ups
+				</li>
+				<li>
+					<span class="commonSignStyle researchSign"></span>
+					Research Folders
+				</li>
+				<li>
+					<span class="commonSignStyle documentSign"></span>
+					Document Notes
+				</li>
+				<li>
+					<span class="commonSignStyle historySign"></span>
+					History
+				</li>
+				<li>
+					<span class="commonSignStyle feedbackSign invertImageColor"></span>
+					Feedback & Help
+				</li>
+				<li>
+					<span class="commonSignStyle settingsSign invertImageColor"></span>
+					Settings
+				</li>
+				<li>
+					<span class="commonSignStyle termsSign"></span>
+					Terms & Conditions
+				</li>
+			</ul>
+		<div class="additionalMenuBGColor"></div>
 	</div>
 </div>

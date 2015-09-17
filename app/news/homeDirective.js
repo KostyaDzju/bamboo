@@ -7,6 +7,8 @@ angular.module("homeDirective", ["requestsService"])
                 id: "="
             },
 
+            replace: true,
+
             restrict: "E",
 
             controller: function($scope) {

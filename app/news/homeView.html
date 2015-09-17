@@ -1,12 +1,14 @@
-<div class="row">
-    <div class="col-lg-6">
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="new in firstNew">{{new.title}}</li>
-        </ul>
-    </div>
-    <div class="col-lg-6">
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="new in secondNew">{{new.title}}</li>
-        </ul>
+<div class="mainContentOfThePage">
+    <div class="listWrapper">
+        <div class="floatLeft">
+            <ul class="homeList">
+                <li ng-cloak ng-repeat="new in firstNew">{{new.title}}</li>
+            </ul>
+        </div>
+        <div class="floatRight">
+            <ul class="homeList">
+                <li ng-cloak ng-repeat="new in secondNew">{{new.title}}</li>
+            </ul>
+        </div>
     </div>
 </div>
