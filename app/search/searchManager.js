@@ -7,7 +7,7 @@ angular.module("searchManager", [])
 
             replace: true,
 
-            controller: function($scope) {
+            controller: function($scope, $state) {
 
                 $scope.searchQuery = window.localStorage.getItem("searchQuery");
                 $scope.searchComplete = false;
@@ -21,6 +21,10 @@ angular.module("searchManager", [])
 
                     $scope.searchComplete = true;
                 });
+
+                $scope.navigateToHome = function() {
+                    $state.go("home");
+                }
             },
 
 
