@@ -21,7 +21,7 @@
             </div>
             <div class="clusterDetailsWrapper" ng-repeat="item in cluster.items">
                 <div class="clusterDetailsTitle">{{item.Title}}</div>
-                <div class="clusterDetailsSummary">{{item.Summary}}</div>
+                <div class="clusterDetailsSummary" ng-bind-html="item.Summary | to_trusted"></div>
             </div>
         </div>
     </div>

@@ -25,10 +25,14 @@ angular.module("searchManager", ["searchModelService"])
 
                 $scope.navigateToHome = function() {
                     $state.go("home");
-                }
+                };
             },
-
 
             templateUrl: "app/search/tpl/searchClustersView.html"
         }
+    })
+    .filter('to_trusted', function($sce){
+        return function(text) {
+            return $sce.trustAsHtml(text);
+        };
     });
