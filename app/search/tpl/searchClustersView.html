@@ -13,7 +13,7 @@
         <div class="sortingBox"></div>
     </div>
     <div id="searchResultContentId" class="searchResultContent loadingBGColor">
-        <div ng-repeat="cluster in clusters">
+        <div ng-repeat="cluster in clusters" ng-show="searchComplete">
             <div class="clusterHeader">
                 <div class="clusterTitle">{{cluster.title}}
                     <a class="clusterTotalResultsLink" href="">View All ({{cluster.totalResults}})</a>
@@ -25,5 +25,5 @@
             </div>
         </div>
     </div>
-    <div class="loader" ng-hide="searchComplete">Loading...</div>
+    <loading-spin></loading-spin>
 </div>

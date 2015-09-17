@@ -7,9 +7,16 @@ angular.module("searchManager", [])
 
             replace: true,
 
+            require: "toolbarView",
+
+            link: function($scope, ctrl) {
+                console.log(ctrl.newValue);
+            },
+
             controller: function($scope, $state) {
 
                 $scope.searchQuery = window.localStorage.getItem("searchQuery");
+                //console.log($scope.newValue);
                 $scope.searchComplete = false;
 
                 $scope.$on('searchEnded', function(event, searchModel) {

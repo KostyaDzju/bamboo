@@ -1,4 +1,4 @@
-angular.module("app",["ui.router", "loginDirective", "homeDirective", "toolbarDirective", "searchManager"])
+angular.module("app",["ui.router", "loginDirective", "homeDirective", "toolbarDirective", "searchManager", "loadingSpin"])
 
     .config(function($stateProvider, $urlRouterProvider, searchServiceProvider) {
 
