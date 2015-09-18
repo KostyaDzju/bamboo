@@ -1,4 +1,4 @@
-<div class="mainContentOfThePage">
+<div id="mainContentSearchPage" class="mainContentOfThePage">
     <div class="stripeWithBtn">
         <div class="wrapperBtn">
             <div class="btns" ng-click="navigateToHome()"><span class="homeBtnValue">Home</span></div>
@@ -10,7 +10,7 @@
         <div class="floatLeft italicText" ng-if="!searchComplete">Searching for&nbsp;</div>
         <div class="floatLeft" ng-if="searchComplete">{{totalResults}}<span class="italicText">&nbsp;results for&nbsp;</span></div>
         <span class="quote">{{searchQuery}}</span>
-        <div class="sortingBox"></div>
+        <sorting-view></sorting-view>
     </div>
     <div id="searchResultContentId" class="searchResultContent loadingBGColor">
         <div ng-repeat="cluster in clusters" ng-show="searchComplete">

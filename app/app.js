@@ -1,6 +1,6 @@
-angular.module("app",["ui.router", "loginDirective", "homeDirective", "toolbarDirective", "searchManager", "loadingSpin"])
+angular.module("app",["ui.router", "loginDirective", "homeDirective", "toolbarDirective", "searchManager", "loadingSpin", "sorting"])
 
-    .config(function($stateProvider, $urlRouterProvider, searchServiceProvider) {
+    .config(function($stateProvider, $urlRouterProvider, searchServiceProvider, sortingServiceProvider) {
 
         $urlRouterProvider.otherwise("/login");
 
@@ -30,6 +30,8 @@ angular.module("app",["ui.router", "loginDirective", "homeDirective", "toolbarDi
         searchServiceProvider.setSortValue('Relevance');
         searchServiceProvider.setCitationComboValue(true);
         searchServiceProvider.setDCValue(1441894669044);
+
+        sortingServiceProvider.setSortingCriteria(["Relevance", "Most Recent", "Categorized View"]);
     })
 
     .controller("mainCtrl", function($scope) {

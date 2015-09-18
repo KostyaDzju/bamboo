@@ -45,7 +45,7 @@ angular.module("searchService",["requestsService", "searchModelService"])
                     dcValue = value;
                 },
 
-                $get: function (requestsService, searchModelService) {
+                $get: function ($log, requestsService, searchModelService) {
 
                     return {
 

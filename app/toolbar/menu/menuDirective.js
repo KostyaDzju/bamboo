@@ -9,11 +9,19 @@ angular.module("menuDirective", [])
 
             controller: function($scope) {
 
+                var menu = angular.element(document.getElementById('menuContent'));
+
                 $scope.menuOpened = false;
 
                 $scope.toggleMenu = function(event) {
-                    $scope.menuOpened = !($scope.menuOpened);
 
+                    if($scope.menuOpened) {
+                        $scope.menuOpened = false;
+                        menu.removeClass("showMenuContent");
+                    } else {
+                        $scope.menuOpened = true;
+                        menu.addClass("showMenuContent");
+                    }
                     event.stopPropagation();
                 };
 
@@ -21,10 +29,26 @@ angular.module("menuDirective", [])
                     $state.go("citations");
                 };
 
-                window.onclick = function () {
+                window.onclick = function (event) {
+
+                    var clickInsideMenu = false;
+
+                    var target = (event && event.target);
+
                     if($scope.menuOpened) {
-                        $scope.menuOpened = false;
-                        $scope.$apply();
+                        while(target.parentNode) {
+                            if (target == menu[0]) {
+                                clickInsideMenu = true;
+                                break;
+                            }
+                            target = target.parentNode;
+                        }
+
+                        if(!clickInsideMenu) {
+                            $scope.menuOpened = false;
+                            angular.element(document.getElementById('menuContent')).removeClass("showMenuContent");
+                        }
+
                     }
                 };
             },

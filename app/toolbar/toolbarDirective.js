@@ -7,6 +7,8 @@ angular.module("toolbarDirective", ["menuDirective", "searchInputDirective", "lo
 
             replace: true,
 
+            /*transclude: true,*/
+
             templateUrl: "app/toolbar/toolbarView.html",
 
             controller: function($scope) {
@@ -20,8 +22,14 @@ angular.module("toolbarDirective", ["menuDirective", "searchInputDirective", "lo
                     $scope.searchComplete = false;
 
                     $state.go("searchResult");
-                })
+                });
             }
-        }
 
+            /*link: function(scope, iElement, iAttrs, controller, transcludeFn) {
+                transcludeFn(iElement, function(clone) {
+                    iElement.append(clone);
+                })
+            }*/
+
+        }
     });

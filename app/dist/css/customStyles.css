@@ -2,6 +2,20 @@ html, body {
     height: 100%;
     font-family: 'Helvetica Neue', HelveticaNeue, Helvetica-Neue, Helvetica, 'BBAlpha Sans', sans-serif;
     overflow: hidden;
+    font-family: 'Helvetica Neue', HelveticaNeue, Helvetica-Neue, Helvetica, 'BBAlpha Sans', sans-serif;
+}
+.overlay{
+    position: fixed!important;
+    z-index: 4!important;
+    top: 47px!important;
+    left: 0!important;
+    height: 100%!important;
+    width: 100%!important;
+    background-color: #000!important;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=33)!important;
+    -moz-opacity: 0.33!important;
+    -khtml-opacity: 0.33!important;
+    opacity: 0.33!important;
 }
 .wrapper {
     height: 100%;
@@ -32,7 +46,7 @@ html, body {
 .toolbar {
     position: relative;
     background-color: rgb(0, 102, 153);
-    height: 100%;
+    height: 100%; ;
 }
 .menuIcon {
     position:absolute;
@@ -50,16 +64,27 @@ html, body {
 .menuContent {
     position: absolute;
     top: 47px;
+    left: 0;
     border-top: 1px solid #000;
     z-index: 1;
     height: 100%;
+    width: 100%;
+    transition: transform 0.3s;
+    transform: translateX(-100%);
+}
+@media all and (min-width: 320px) {
+    .menuContent {
+        width: 300px;
+    }
+}
+.showMenuContent {
+    transform: translateX(0);
 }
 .menuList {
     list-style-type: none;
     padding: 0;
     margin: 0;
     line-height: 47px;
-    width: 300px;
     background-color: rgb(31, 73, 92);
     font-family: 'Helvetica Neue', HelveticaNeue, Helvetica-Neue, Helvetica, 'BBAlpha Sans', sans-serif;
     font-size: 17px;
@@ -247,7 +272,7 @@ html, body {
     content: close-quote;
 }
 .sortingBox {
-    position: absolute;
+    position: relative;
     right: 20px;
     top: 10px;
     background-image: -webkit-linear-gradient(top, rgb(254, 254, 254), rgb(206, 206, 206));
@@ -256,6 +281,30 @@ html, body {
     width: 13em;
     min-height: 2.1em;
     cursor: pointer;
+}
+.sortingBox span {
+    position: relative;
+    top: 7px;
+    left: 6px;
+}
+.sortingBoxContent {
+    position: absolute;
+    width: 21em !important;
+    height: 9.5em !important;
+    right: 5px !important;
+    top: 52px !important;
+    background-color: rgb(255, 255, 255);
+    border: 6px solid rgb(94, 223, 255);
+    border-radius: 0.3em;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 3.79999995231628px 11.3999996185303px 0px;
+    z-index: 5;
+}
+.sortingBoxContent ul {
+    list-style-type: none;
+    padding: 0;
+}
+.sortingBoxContent ul li {
+    padding: 0.81em 0.4em
 }
 .clusterHeader {
     width: 100%;
