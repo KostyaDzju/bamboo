@@ -27,8 +27,6 @@ angular.module("sorting", ["configService", "searchService", "searchModelService
 
                 $scope.sortValueClickAction = function(event) {
 
-                    $scope.isClustered = undefined;
-
                     $scope.selectedCriteria = event.target.innerHTML;
 
                     clearMarkedSortValue($scope.selectedCriteria);

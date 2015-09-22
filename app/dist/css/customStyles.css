@@ -245,6 +245,11 @@ html, body {
 .searchResultContent {
     height: 100%;
 }
+
+.searchResultContent1 {
+    position: relative;
+    height: 100%;
+}
 .sortingStripe {
     position: relative;
     font-size: 16px;
@@ -373,7 +378,8 @@ html, body {
     color: rgb(0, 0, 204);;
 }
 .loaderWrapper {
-    /*position: absolute;*/
+    position: absolute;
+    top: 0;
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.51);

@@ -12,13 +12,13 @@
         <span class="quote">{{searchQuery}}</span>
         <sorting-view></sorting-view>
     </div>
-    <div ng-switch on="isClustered">
+    <div ng-switch on="isClustered" class="searchResultContent1">
         <div ng-switch-when="true">
             <div ng-include="'/app/search/tpl/searchClustersView.html'"></div>
         </div>
         <div ng-switch-when="false">
-            <div ng-include="'/app/search/tpl/searchResultView.html'"></div>
+            <div ng-include="'/app/search/tpl/searchResu ltView.html'"></div>
         </div>
+        <loading-spin></loading-spin>
     </div>
-    <loading-spin></loading-spin>
 </div>
