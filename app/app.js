@@ -22,16 +22,16 @@ angular.module("app",["ui.router", "loginDirective", "homeDirective", "toolbarDi
                 templateUrl: "/app/pages/citations.html"
             });
 
-        searchServiceProvider.setExpandValue('ClusterResult/Clusters/Items,ClusterResult/FilterTrees/Root/Children,ClusterResult/TopAnswer');
-        searchServiceProvider.setClusteredValue(true);
+        sortingServiceProvider.setSortingCriteria(["Most Recent", "Relevance", "Categorized View"]);
+
+        //searchServiceProvider.setExpandValue('ClusterResult/Clusters/Items,ClusterResult/FilterTrees/Root/Children,ClusterResult/TopAnswer');
+        //searchServiceProvider.setClusteredValue(true);
         searchServiceProvider.setworkspaceIdValue(-1);
         searchServiceProvider.setFilterTreeIdValue(['cef573c2-fdc5-11dd-87af-0800200c9a66','cef573c4-fdc5-11dd-87af-0800200c9a66']);
         searchServiceProvider.setResourceIdValue('quickAnswers');
-        searchServiceProvider.setSortValue('Relevance');
+        //searchServiceProvider.setSortValue('Relevance');
         searchServiceProvider.setCitationComboValue(true);
         searchServiceProvider.setDCValue(1441894669044);
-
-        sortingServiceProvider.setSortingCriteria(["Relevance", "Most Recent", "Categorized View"]);
     })
 
     .controller("mainCtrl", function($scope) {

@@ -1,4 +1,4 @@
-angular.module("sorting", ["configService"])
+angular.module("sorting", ["configService", "searchService", "searchModelService"])
     .directive("sortingView", function() {
         return {
 
@@ -8,7 +8,9 @@ angular.module("sorting", ["configService"])
 
             templateUrl: "app/search/sorting/sortingView.html",
 
-            controller: function ($scope, sortingService) {
+            controller: function ($rootScope, $scope, sortingService, searchService, searchModelService) {
+
+                var overlayDiv = angular.element(document.getElementById("overlay"));
 
                 $scope.sortMenu = false;
 
@@ -20,8 +22,56 @@ angular.module("sorting", ["configService"])
 
                     $scope.sortMenu = !$scope.sortMenu;
                     event.stopPropagation();
-                    angular.element(document.getElementById("body")).append("<div class='overlay'></div>");
-                }
+                    overlayDiv.addClass("overlay");
+                };
+
+                $scope.sortValueClickAction = function(event) {
+
+                    $scope.selectedCriteria = event.target.innerHTML;
+
+                    clearMarkedSortValue($scope.selectedCriteria);
+
+                    var selectedValue = angular.element(event.target);
+
+                    selectedValue.addClass("selectedSortingValue");
+
+                    searchService.setSortValue($scope.selectedCriteria);
+
+                    $rootScope.$broadcast('searchStarted', searchModelService.getSearchQuery());
+                    searchService.searchRequest(searchModelService.getSearchQuery());
+                };
+
+                var clearMarkedSortValue = function() {
+
+                    var sortingValueList = angular.element(document.getElementById("sortingValueList"));
+                    var listLi = sortingValueList.children();
+
+                    for(var i = 0; i < listLi.length; i++) {
+                        listLi.removeClass("selectedSortingValue");
+                    }
+                };
+
+                /*$scope.addMarkSign = function() {
+                    var sortingValueList = angular.element(document.getElementById("sortingValueList"));
+                    var listLi = sortingValueList.firstChild();
+
+                    listLi.addClass("selectedSortingValue");
+
+                    for(var i = 0; i < listLi.length; i++) {
+                        if(listLi[i].innerHTML == $scope.selectedCriteria) {
+                        }
+                    }
+                };*/
+
+                window.onclick = function (event) {
+
+                    if($scope.sortMenu) {
+
+                        $scope.sortMenu = false;
+                        overlayDiv.removeClass("overlay");
+                        $scope.$apply();
+                    }
+                };
             }
         }
     });

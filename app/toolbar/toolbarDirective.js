@@ -7,7 +7,7 @@ angular.module("toolbarDirective", ["menuDirective", "searchInputDirective", "lo
 
             replace: true,
 
-            /*transclude: true,*/
+            transclude: true,
 
             templateUrl: "app/toolbar/toolbarView.html",
 

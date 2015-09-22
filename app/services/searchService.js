@@ -1,6 +1,7 @@
-angular.module("searchService",["requestsService", "searchModelService"])
-    .constant("baseUrl", "http://velvet-azure.intelliconnect.cch.com/")
-    .provider("searchService", function() {
+angular.module("searchService",["requestsService", "searchModelService", "configService"])
+    .constant("expandClustered", 'ClusterResult/Clusters/Items,ClusterResult/FilterTrees/Root/Children,ClusterResult/TopAnswer')
+    .constant("expandNotClustered", 'Result/Items,Result/Citations/Items,Result/FilterTrees/Root/Children,Result/TopAnswer')
+    .provider("searchService", function(expandClustered, expandNotClustered) {
 
             var expandValue = null,
             clusteredValue = false,
@@ -9,7 +10,8 @@ angular.module("searchService",["requestsService", "searchModelService"])
             resourceIdValue = null,
             sortValue = null,
             citationComboValue = false,
-            dcValue = null;
+            dcValue = null,
+            searchQuery = null;
 
             return {
 
@@ -45,20 +47,41 @@ angular.module("searchService",["requestsService", "searchModelService"])
                     dcValue = value;
                 },
 
-                $get: function ($log, requestsService, searchModelService) {
+                $get: function ($log, requestsService, searchModelService, sortingService) {
+
+                    var isClustered = function(sortValue) {
+                        return sortValue == "Categorized View";
+
+                    };
+
+                    var getExpandValue = function(sortValue) {
+                        return sortValue == "Categorized View" ? expandClustered : expandNotClustered;
+                    };
+
+                    var prepareSortValue = function(sortValue) {
+                        return sortValue == "Most Recent" ? "mostrecent" : "relevance";
+                    };
 
                     return {
 
+                        setSortValue: function (value) {
+                            sortValue = value;
+                        },
+
                         searchRequest: function (searchValue) {
 
+                            searchQuery = searchValue;
+
+                            var sort = sortValue || sortingService.getSortingCriteria()[0];
+
                             var params = {
-                                $expand: expandValue,
-                                    clustered: clusteredValue,
+                                $expand: getExpandValue(sortValue),
+                                    clustered: isClustered(sort),
                                     workspaceId: workspaceIdValue,
                                     filterTreeId: setFilterTreeIdValue,
                                     resourceId: resourceIdValue,
-                                    query: searchValue,
-                                    sort: sortValue,
+                                    query: searchQuery,
+                                    sort: prepareSortValue(sort),
                                     citationCombo: citationComboValue,
                                     _dc: dcValue
                             };

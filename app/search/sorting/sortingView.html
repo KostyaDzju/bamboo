@@ -2,11 +2,9 @@
     <div class="sortingBox" ng-click="toggleMenu($event)">
         <span>{{selectedCriteria}}</span>
     </div>
-    <div class="sortingBoxContent" ng-show="sortMenu">
-        <ul>
-            <li ng-repeat="sortCriteria in sortingCriterias">
-                {{sortCriteria}}
-            </li>
+    <div id="sortMenu" ng-show="sortMenu" class="sortingBoxContent">
+        <ul id="sortingValueList">
+            <li ng-click="sortValueClickAction($event)" ng-repeat="sortCriteria in sortingCriterias">{{sortCriteria}}</li>
         </ul>
     </div>
 </div>

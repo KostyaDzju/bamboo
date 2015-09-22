@@ -12,6 +12,7 @@ angular.module("configService",[])
             $get: function () {
 
                 return {
+
                     getSortingCriteria: function() {
                         return sortingCriteria;
                     }

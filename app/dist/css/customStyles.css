@@ -2,7 +2,6 @@ html, body {
     height: 100%;
     font-family: 'Helvetica Neue', HelveticaNeue, Helvetica-Neue, Helvetica, 'BBAlpha Sans', sans-serif;
     overflow: hidden;
-    font-family: 'Helvetica Neue', HelveticaNeue, Helvetica-Neue, Helvetica, 'BBAlpha Sans', sans-serif;
 }
 .overlay{
     position: fixed!important;
@@ -19,6 +18,9 @@ html, body {
 }
 .wrapper {
     height: 100%;
+}
+.hideElement {
+    display: none;
 }
 .mainContentOfThePage {
     position: absolute;
@@ -245,6 +247,7 @@ html, body {
 }
 .loadingBGColor {
     background-color: rgba(0, 0, 0, 0.51);
+    z-index: 5;
 }
 .sortingStripe {
     position: relative;
@@ -299,12 +302,45 @@ html, body {
     box-shadow: rgba(0, 0, 0, 0.8) 0px 3.79999995231628px 11.3999996185303px 0px;
     z-index: 5;
 }
+.sortingBoxContent:after, .sortingBoxContent:before {
+    bottom: 100%;
+    left: 65%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+.sortingBoxContent:after {
+    border-color: rgba(255, 253, 252, 0);
+    border-bottom-color: #fffdfc;
+    border-width: 0;
+    margin-left: -15px;
+}
+.sortingBoxContent:before {
+    border-color: rgba(94, 223, 255, 0);
+    border-bottom-color: #5EDFFF;
+    border-width: 21px;
+    margin-left: -21px;
+}
 .sortingBoxContent ul {
     list-style-type: none;
     padding: 0;
 }
 .sortingBoxContent ul li {
-    padding: 0.81em 0.4em
+    padding: 0.81em 0.4em;
+    border-top: 1px solid rgb(222, 222, 222);
+}
+.selectedSortingValue:after {
+    content: '\2713';
+    display: inline-block;
+    color: rgb(221, 221, 221);
+    position: absolute;
+    right: 10px;
+    font-size: 2em;
+    text-align: right;
+    line-height: 1em;
 }
 .clusterHeader {
     width: 100%;
@@ -312,7 +348,6 @@ html, body {
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px 0 #444;
     font-weight: bold;
-    height: 2.5em;
     border-bottom: 1px solid #58748e;
 }
 .clusterTitle {

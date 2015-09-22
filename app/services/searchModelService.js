@@ -24,6 +24,10 @@ angular.module("searchModelService",[])
 
             getSearchFilters: function() {
                 return searchModel.filters;
+            },
+
+            getResults: function() {
+                return searchModel.results;
             }
         };
 
@@ -58,11 +62,17 @@ angular.module("searchModelService",[])
 
             parseResult: function (searchResult) {
 
-                searchModel.searchId = searchResult["d"]["Id"];
+                var entireSearchObject = searchResult["d"];
 
-                if(searchResult["d"]["Clustered"] === true) {
+                searchModel.searchId = entireSearchObject["Id"];
 
-                    var clusteredResultObj = searchResult["d"]["ClusterResult"];
+                var filters = null;
+
+                if(entireSearchObject["Clustered"] === true) {
+
+                    searchModel.isClustered = true;
+
+                    var clusteredResultObj = entireSearchObject["ClusterResult"];
 
                     searchModel.totalResults = clusteredResultObj["TotalResults"];
 
@@ -72,11 +82,22 @@ angular.module("searchModelService",[])
 
                     searchModel.totalClusters = clusteredResultObj["TotalClusters"];
 
-                    var filters = clusteredResultObj["FilterTrees"]["results"];
+                    filters = clusteredResultObj["FilterTrees"]["results"];
 
-                    parseFilters(filters);
+                } else {
+
+                    searchModel.isClustered = false;
+
+                    var resultObj = entireSearchObject["Result"];
+
+                    searchModel.totalResults = resultObj["TotalResults"];
+
+                    searchModel.results = resultObj["Items"]["results"];
+
+                    filters = resultObj["FilterTrees"]["results"];
                 }
 
+                parseFilters(filters);
                 $rootScope.$broadcast('searchEnded', searchModel);
             },
 
@@ -86,6 +107,10 @@ angular.module("searchModelService",[])
 
             getSearchQuery: function () {
                 return searchModel.getSearchQuery();
+            },
+
+            getClusteredValue: function() {
+                return searchModel.isClustered;
             }
         }
     });
