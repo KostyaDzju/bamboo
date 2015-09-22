@@ -1,27 +1,11 @@
-<div id="mainContentSearchPage" class="mainContentOfThePage">
-    <div class="stripeWithBtn">
-        <div class="wrapperBtn">
-            <div class="btns" ng-click="navigateToHome()"><span class="homeBtnValue">Home</span></div>
-            <span class="arrow"></span>
-            <div class="btns resultsBtn"><span class="resultsBtnValue">Search Results</span></div>
-        </div>
+<div id="searchResultContentId" class="searchResultContent">
+    <div id="resultHeader" class="clusterHeader">
+        <div class="clusterTitle">All results</div>
     </div>
-    <div class="sortingStripe">
-        <div class="floatLeft italicText" ng-if="!searchComplete">Searching for&nbsp;</div>
-        <div class="floatLeft" ng-if="searchComplete">{{totalResults}}<span class="italicText">&nbsp;results for&nbsp;</span></div>
-        <span class="quote">{{searchQuery}}</span>
-        <sorting-view></sorting-view>
-    </div>
-    <div id="searchResultContentId" class="searchResultContent">
-        <div id="resultHeader" class="clusterHeader hideElement">
-            <div class="clusterTitle">All results</div>
+    <div ng-repeat="result in results" ng-show="searchComplete">
+        <div class="clusterDetailsWrapper">
+            <div class="clusterDetailsTitle">{{result.Title}}</div>
+            <div class="clusterDetailsSummary" ng-bind-html="result.Summary | to_trusted"></div>
         </div>
-        <div ng-repeat="result in results" ng-show="searchComplete">
-            <div class="clusterDetailsWrapper">
-                <div class="clusterDetailsTitle">{{result.Title}}</div>
-                <div class="clusterDetailsSummary" ng-bind-html="result.Summary | to_trusted"></div>
-            </div>
-        </div>
-        <loading-spin></loading-spin>
     </div>
 </div>

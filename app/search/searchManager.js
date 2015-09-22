@@ -9,8 +9,6 @@ angular.module("searchManager", ["searchModelService"])
 
             controller: function($scope, $state, searchModelService) {
 
-                $scope.isClustered = searchModelService.getClusteredValue();
-
                 $scope.searchQuery = searchModelService.getSearchQuery();
 
                 $scope.searchComplete = false;
@@ -19,6 +17,7 @@ angular.module("searchManager", ["searchModelService"])
 
                     $scope.totalResults = searchModel.getSearchTotalResults();
                     $scope.clusters = searchModel.getClustersResult();
+                    $scope.isClustered = searchModel.getClusteredValue();
 
                     $scope.results = searchModel.getResults();
 
@@ -28,25 +27,9 @@ angular.module("searchManager", ["searchModelService"])
                 $scope.navigateToHome = function() {
                     $state.go("home");
                 };
-
-                $scope.getTemplateUrl = function() {
-                    if($scope.isClustered) {
-                        return "app/search/tpl/searchClustersView.html";
-                    } else {
-                        return "app/search/tpl/searchResultView.html";
-                    }
-                }
             },
 
-            template : '<div ng-include="getTemplateUrl()"></div>'
-
-            /*templateUrl: function($scope) {
-                if($scope.isClustered) {
-                    return "app/search/tpl/searchClustersView.html";
-                } else {
-                    return "app/search/tpl/searchResultView.html";
-                }
-            }*/
+            templateUrl: "app/search/tpl/searchCommon.html"
         }
     })
     .filter('to_trusted', function($sce){

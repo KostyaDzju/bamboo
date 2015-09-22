@@ -9,11 +9,15 @@ angular.module("searchInputDirective", ["searchService", "searchModelService"])
 
             controller: function($scope, $rootScope, searchService, searchModelService) {
 
+                $scope.searchValue = searchModelService.getSearchQuery();
+
                 $scope.clearSearchInput = function() {
                     $scope.searchValue = null;
                 };
 
                 $scope.performSearch = function(searchValue) {
+
+                    $scope.isClustered = undefined;
 
                     $rootScope.$broadcast('searchStarted', searchValue);
 

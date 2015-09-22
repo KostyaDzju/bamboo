@@ -18,7 +18,7 @@ angular.module("sorting", ["configService", "searchService", "searchModelService
 
                 $scope.selectedCriteria = $scope.sortingCriterias[0];
 
-                $scope.toggleMenu = function(event) {
+                $scope.toggleSortMenu = function(event) {
 
                     $scope.sortMenu = !$scope.sortMenu;
                     event.stopPropagation();
@@ -26,6 +26,8 @@ angular.module("sorting", ["configService", "searchService", "searchModelService
                 };
 
                 $scope.sortValueClickAction = function(event) {
+
+                    $scope.isClustered = undefined;
 
                     $scope.selectedCriteria = event.target.innerHTML;
 

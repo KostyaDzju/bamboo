@@ -75,7 +75,7 @@ angular.module("searchService",["requestsService", "searchModelService", "config
                             var sort = sortValue || sortingService.getSortingCriteria()[0];
 
                             var params = {
-                                $expand: getExpandValue(sortValue),
+                                $expand: getExpandValue(sort),
                                     clustered: isClustered(sort),
                                     workspaceId: workspaceIdValue,
                                     filterTreeId: setFilterTreeIdValue,

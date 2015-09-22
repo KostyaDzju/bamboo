@@ -1,0 +1,24 @@
+<div id="mainContentSearchPage" class="mainContentOfThePage">
+    <div class="stripeWithBtn">
+        <div class="wrapperBtn">
+            <div class="btns" ng-click="navigateToHome()"><span class="homeBtnValue">Home</span></div>
+            <span class="arrow"></span>
+            <div class="btns resultsBtn"><span class="resultsBtnValue">Search Results</span></div>
+        </div>
+    </div>
+    <div class="sortingStripe">
+        <div class="floatLeft italicText" ng-if="!searchComplete">Searching for&nbsp;</div>
+        <div class="floatLeft" ng-if="searchComplete">{{totalResults}}<span class="italicText">&nbsp;results for&nbsp;</span></div>
+        <span class="quote">{{searchQuery}}</span>
+        <sorting-view></sorting-view>
+    </div>
+    <div ng-switch on="isClustered">
+        <div ng-switch-when="true">
+            <div ng-include="'/app/search/tpl/searchClustersView.html'"></div>
+        </div>
+        <div ng-switch-when="false">
+            <div ng-include="'/app/search/tpl/searchResultView.html'"></div>
+        </div>
+    </div>
+    <loading-spin></loading-spin>
+</div>

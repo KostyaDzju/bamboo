@@ -28,6 +28,10 @@ angular.module("searchModelService",[])
 
             getResults: function() {
                 return searchModel.results;
+            },
+
+            getClusteredValue: function() {
+                return searchModel.isClustered;
             }
         };
 

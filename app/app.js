@@ -22,7 +22,7 @@ angular.module("app",["ui.router", "loginDirective", "homeDirective", "toolbarDi
                 templateUrl: "/app/pages/citations.html"
             });
 
-        sortingServiceProvider.setSortingCriteria(["Most Recent", "Relevance", "Categorized View"]);
+        sortingServiceProvider.setSortingCriteria(["Relevance", "Categorized View", "Most Recent"]);
 
         //searchServiceProvider.setExpandValue('ClusterResult/Clusters/Items,ClusterResult/FilterTrees/Root/Children,ClusterResult/TopAnswer');
         //searchServiceProvider.setClusteredValue(true);
