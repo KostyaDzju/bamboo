@@ -245,10 +245,6 @@ html, body {
 .searchResultContent {
     height: 100%;
 }
-.loadingBGColor {
-    background-color: rgba(0, 0, 0, 0.51);
-    z-index: 5;
-}
 .sortingStripe {
     position: relative;
     font-size: 16px;
@@ -375,6 +371,13 @@ html, body {
 .clusterDetailsTitle {
     font-weight: bold;
     color: rgb(0, 0, 204);;
+}
+.loaderWrapper {
+    /*position: absolute;*/
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.51);
+    /*top: 0;*/
 }
 .loader {
     position: absolute;

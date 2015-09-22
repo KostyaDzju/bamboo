@@ -12,7 +12,7 @@
         <span class="quote">{{searchQuery}}</span>
         <sorting-view></sorting-view>
     </div>
-    <div id="searchResultContentId" class="searchResultContent loadingBGColor">
+    <div id="searchResultContentId" class="searchResultContent">
         <div id="resultHeader" class="clusterHeader hideElement">
             <div class="clusterTitle">All results</div>
         </div>
@@ -22,6 +22,6 @@
                 <div class="clusterDetailsSummary" ng-bind-html="result.Summary | to_trusted"></div>
             </div>
         </div>
+        <loading-spin></loading-spin>
     </div>
-    <loading-spin></loading-spin>
 </div>

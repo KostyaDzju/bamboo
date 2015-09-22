@@ -17,8 +17,6 @@ angular.module("toolbarDirective", ["menuDirective", "searchInputDirective", "lo
 
                     $scope.searchQuery = searchValue;
 
-                    angular.element(document.getElementById('searchResultContentId')).addClass("loadingBGColor");
-
                     $scope.searchComplete = false;
 
                     $state.go("searchResult");

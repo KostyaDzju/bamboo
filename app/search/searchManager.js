@@ -22,9 +22,6 @@ angular.module("searchManager", ["searchModelService"])
 
                     $scope.results = searchModel.getResults();
 
-                    //angular.element(document.getElementById('resultHeader')).removeClass("hideElement");
-                    //angular.element(document.getElementById('searchResultContentId')).removeClass("loadingBGColor");
-
                     $scope.searchComplete = true;
                 });
 
