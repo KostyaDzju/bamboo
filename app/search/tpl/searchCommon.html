@@ -1,11 +1,5 @@
 <div id="mainContentSearchPage" class="mainContentOfThePage">
-    <div class="stripeWithBtn">
-        <div class="wrapperBtn">
-            <div class="btns" ng-click="navigateToHome()"><span class="homeBtnValue">Home</span></div>
-            <span class="arrow"></span>
-            <div class="btns resultsBtn"><span class="resultsBtnValue">Search Results</span></div>
-        </div>
-    </div>
+    <breadcrumb-view></breadcrumb-view>
     <div class="sortingStripe">
         <div class="floatLeft italicText" ng-if="!searchComplete">Searching for&nbsp;</div>
         <div class="floatLeft" ng-if="searchComplete">{{totalResults}}<span class="italicText">&nbsp;results for&nbsp;</span></div>
