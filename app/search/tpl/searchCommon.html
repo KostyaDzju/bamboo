@@ -17,8 +17,8 @@
             <div ng-include="'/app/search/tpl/searchClustersView.html'"></div>
         </div>
         <div ng-switch-when="false">
-            <div ng-include="'/app/search/tpl/searchResu ltView.html'"></div>
+            <div ng-include="'/app/search/tpl/searchResultView.html'"></div>
         </div>
-        <loading-spin></loading-spin>
+        <loading-spin my-state="searchComplete"></loading-spin>
     </div>
 </div>

@@ -13,6 +13,11 @@ angular.module("searchManager", ["searchModelService"])
 
                 $scope.searchComplete = false;
 
+                $scope.$on('searchStarted', function() {
+
+                    $scope.searchComplete = false;
+                });
+
                 $scope.$on('searchEnded', function(event, searchModel) {
 
                     $scope.totalResults = searchModel.getSearchTotalResults();

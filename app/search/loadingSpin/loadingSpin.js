@@ -4,6 +4,10 @@ angular.module("loadingSpin", [])
 
             restrict: "EA",
 
+            scope: {
+                myState: "="
+            },
+
             replace: true,
 
             templateUrl: "app/search/loadingSpin/loadingSpinView.html"

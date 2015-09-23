@@ -4,21 +4,30 @@ angular.module("app",["ui.router", "loginDirective", "homeDirective", "toolbarDi
 
         $urlRouterProvider.otherwise("/login");
 
+        sortingServiceProvider.setSortingCriteria(["Relevance", "Categorized View", "Most Recent"]);
+
         $stateProvider
+            .state("common", {
+                templateUrl: "/app/pages/common.html",
+                abstract:true
+            })
             .state("login", {
                 url: "/login",
                 templateUrl: "/app/pages/loginView.html"
             })
             .state("home", {
                 url: "/home",
+                parent: "common",
                 templateUrl: "/app/pages/homeViewDetails.html"
             })
             .state("searchResult", {
                 url: "/searchResult",
+                parent: "common",
                 templateUrl: "/app/pages/searchResult.html"
             })
             .state("citations", {
                 url: "/news",
+                parent: "common",
                 templateUrl: "/app/pages/citations.html"
             });
 

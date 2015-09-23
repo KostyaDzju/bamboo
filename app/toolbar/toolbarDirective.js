@@ -1,5 +1,5 @@
 angular.module("toolbarDirective", ["menuDirective", "searchInputDirective", "logoDirective"])
-    .directive("toolbarView", function($state) {
+    .directive("toolbarView", function($state, $compile) {
 
         return {
 
@@ -9,7 +9,7 @@ angular.module("toolbarDirective", ["menuDirective", "searchInputDirective", "lo
 
             transclude: true,
 
-            templateUrl: "app/toolbar/toolbarView.html",
+            templateURL: "app/toolbar/toolbarView.html",
 
             controller: function($scope) {
 
@@ -17,17 +17,21 @@ angular.module("toolbarDirective", ["menuDirective", "searchInputDirective", "lo
 
                     $scope.searchQuery = searchValue;
 
-                    $scope.searchComplete = false;
-
                     $state.go("searchResult");
                 });
+            },
+
+            link: function(scope, element, attrs, ctrl, transclude) {
+
+                transclude(function(clone){
+
+                    if(clone.length == 0) {
+                        element.append('<div class="toolbar"><menu-view></menu-view><search-input-view></search-input-view><logo-view></logo-view></div>');
+                        $compile(element)(scope);
+                    } else {
+                        element.append(clone);
+                    }
+                });
             }
-
-            /*link: function(scope, iElement, iAttrs, controller, transcludeFn) {
-                transcludeFn(iElement, function(clone) {
-                    iElement.append(clone);
-                })
-            }*/
-
         }
     });
